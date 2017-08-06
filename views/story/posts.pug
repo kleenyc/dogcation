@@ -1,0 +1,9 @@
+extends ../layout
+
+block body
+
+	.list-group
+		each post in posts
+			a.list-group-item(href=post.url)
+				h4 #{post.title} #[small= date(post.createdAt)]
+				p By #{post.author}

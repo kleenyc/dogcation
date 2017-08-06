@@ -1,0 +1,21 @@
+extends ../layout
+
+block body
+	h1 New Dogcation Story
+	h4 *Required Fields
+	include errors
+	form(action='/story', method='post', enctype='multipart/form-data')
+		.form-group
+			label(for='title') Title in One Word*
+			input.form-control(name='title', value=post.title, autofocus)
+		.form-group
+			label(for='body') Your Dogcation Story*
+			textarea.form-control(name='body')= post.body
+		.form-group
+			label(for='author') Your Name*
+			input.form-control(name='author', value=post.author)
+		.form-group
+			label(for='image') Share Your Photo*
+			input.form-control(name='image', type='file')
+		.form-group
+			input.btn.btn-primary.btn-lg(type='submit', value='Create')
