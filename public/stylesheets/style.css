@@ -1,6 +1,10 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+/*  background-image: url("/images/fredSUP.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center; */
 }
 
 a {
@@ -15,4 +19,23 @@ a {
     margin-bottom: 25px;
     background-color: #f44336;
     color: white;
+}
+
+.button {
+	margin-top: 20px;
+}
+
+.form {
+    width: 50%;
+    margin-left: 20px;	
+    font-size: 16px;
+ }
+
+.navbar1 {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	margin-top: 1px;
+	padding: 2px;
+	font-size: 16px;
 }
