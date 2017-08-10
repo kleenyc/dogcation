@@ -5,6 +5,8 @@ var models        = require('../models/index');
 var Post          = models.post;
 var Comment       = models.comment;
 var uploadHandler = multer({dest: 'public/images/posts'});
+var aws           = require('aws-sdk');
+var s3 = new aws.S3({region:'us-east-2'});
 var router        = express.Router();
 
 // Index.
@@ -58,7 +60,7 @@ router.post('/', uploadHandler.single('image'), function(request, response) {
 		imageFilename: (request.file && request.file.filename)
 	}).then(function(post) {
 		sharp(request.file.path)
-		.resize(300, 300)
+		.resize(400, 400)
 		.max()
 		.withoutEnlargement()
 		.toFile(`${request.file.path}-thumbnail`, function() {

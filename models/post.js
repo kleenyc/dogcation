@@ -5,7 +5,7 @@ module.exports = function(sequelize, DataTypes) {
             allowNull: false,
             validate: {
                 notEmpty: {
-                    msg: 'Please enter a one word title of your story'
+                    msg: 'Please enter a one word title of your dogcation'
                 }
             }
         },
@@ -48,7 +48,7 @@ module.exports = function(sequelize, DataTypes) {
                 return (`/story/${this.title}`);
             },
             imageUrl: function() {
-                return (`/images/posts/${this.imageFilename}`);
+                return (`https://s3.us-east-2.amazonaws.com/dogcation/posts/${this.imageFilename}`);
             },
             imageThumbnailUrl: function() {
                 return (`${this.imageUrl}-thumbnail`);

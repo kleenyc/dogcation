@@ -5,14 +5,17 @@ html
 		title Dogcation
 		link(rel='stylesheet', href='/stylesheets/bootstrap.css')
 		link(rel='stylesheet', href='/stylesheets/style.css')
+		link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Life+Savers') 
 	body
-		nav.navbar.navbar-default
-			.container.fluid
-				.navbar-header.navbar1
-					a.navbar-brand(href='/') Dogcation
+		.container.fluid
+		.navbar-header.nav.navbar
+			a.navbar-brand(href='/')
+				img(src='/images/logoTN.png') 
+			div.searchfield
 				form.navbar-form.navbar-right(action='/story/search', method='get')
 					.form-group
 						input.form-control(name='query', placeholder='Search Dogcation')
+				div.searchbutton
 					input.btn.btn-default(type='submit', value='Search')
 		.container
 			block body
