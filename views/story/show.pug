@@ -7,8 +7,7 @@ block body
 				h1 #{post.title} #[small.secondary-text= date(post.createdAt)]
 				h4 By #{post.author}
 				p= post.body
-				if post.imageFilename
-					p: img(src=post.imageThumbnailUrl)
+				p: img(src=post.imageThumbnailUrl)
 			.col-xs-5
 				.panel.panel-default
 					.panel-heading

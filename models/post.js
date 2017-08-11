@@ -27,15 +27,19 @@ module.exports = function(sequelize, DataTypes) {
                 }
             }
         },
+        link: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                notEmpty: {
+                    msg: 'Please enter a link from your dogcation experience'
+                }
+            }
+        },
         imageFilename: {
             type: DataTypes.STRING,
             allowNull: false,
-            defaultValue: '',
-            validate: {
-                notEmpty: {
-                    msg: 'Please share an image'
-                }
-            }
+            defaultValue: ''
         }
     }, {
         defaultScope: {
@@ -48,7 +52,7 @@ module.exports = function(sequelize, DataTypes) {
                 return (`/story/${this.title}`);
             },
             imageUrl: function() {
-                return (`https://s3.us-east-2.amazonaws.com/dogcation/posts/${this.imageFilename}`);
+                return (`https://s3.amazonaws.com/dogcation/posts/${this.id}`);
             },
             imageThumbnailUrl: function() {
                 return (`${this.imageUrl}-thumbnail`);

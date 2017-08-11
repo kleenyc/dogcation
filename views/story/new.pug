@@ -7,13 +7,16 @@ block body
 		div.form
 			.form-group
 				label(for='title') 
-				input.form-control(name='title', value=post.title, autofocus placeholder='One Word Title')
+				input.form-control(name='title', value= post.title, autofocus placeholder='One Word Title')
 			.form-group
 				label(for='body') 
 				textarea.form-control(name='body' value= post.body, autofocus placeholder='Your Dogcation Story')
 			.form-group
 				label(for='author') 
-				input.form-control(name='author', value=post.author, autofocus placeholder='Your Name')
+				input.form-control(name='author', value= post.author, autofocus placeholder='Your Name')
+			.form-group
+				label(for='link') 
+				input.form-control(name='link', value= post.link, autofocus placeholder='www.YourDogcationLink.com')
 			.form-group
 				label(for='image') 
 				input.form-group(name='image', type='file')

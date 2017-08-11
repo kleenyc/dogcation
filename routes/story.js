@@ -4,7 +4,7 @@ var sharp         = require('sharp');
 var models        = require('../models/index');
 var Post          = models.post;
 var Comment       = models.comment;
-var uploadHandler = multer({dest: 'public/images/posts'});
+var uploadHandler = multer();
 var aws           = require('aws-sdk');
 var s3 = new aws.S3({region:'us-east-2'});
 var router        = express.Router();
@@ -47,7 +47,10 @@ router.get('/search', function(request, response) {
 // New.
 router.get('/new', function(request, response) {
 	response.render('story/new', {
-		post: {}
+		post: {
+			title: '',
+
+		}
 	});
 });
 
@@ -57,17 +60,39 @@ router.post('/', uploadHandler.single('image'), function(request, response) {
 		title:         request.body.title,
 		body:          request.body.body,
 		author:        request.body.author,
-		imageFilename: (request.file && request.file.filename)
+		link:          request.body.link,
+//		imageFilename: (request.file && request.file.filename)
 	}).then(function(post) {
-		sharp(request.file.path)
+		console.log('>>>>>>>>>>>>>>>>', request.file.buffer)
+		sharp(request.file.buffer)
 		.resize(400, 400)
-		.max()
-		.withoutEnlargement()
-		.toFile(`${request.file.path}-thumbnail`, function() {
-			response.redirect(post.url);
-			console.log(Post);
+//		.max()
+//		.withoutEnlargement()
+		.toBuffer()
+		.then(function(thumbnail) {
+			s3.upload({
+				Bucket: 	'dogcation',
+				Key: 		`posts/${post.id}`,
+				Body: 		 request.file.buffer,
+				ACL: 		'public-read',
+				ContentType: request.file.mimetype
+			}, function(error, data) {
+				console.log("===========", error)
+				JSON.stringify(post);
+				s3.upload({
+					Bucket:     'dogcation',
+					Key:        `posts/${post.id}-thumbnail`,
+					Body:        thumbnail,
+					ACL:        'public-read',
+					ContentType: request.file.mimetype
+				}, function(error, data) {
+					console.log('data>>>>>>>>',data)
+					response.redirect('/');
+				});
+			});
 		});
 	}).catch(function(error) {
+		console.log("=====c0reate======", error)
 		response.render('story/new', {
 			post:   request.body,
 			errors: error.errors
