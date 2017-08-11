@@ -30,11 +30,7 @@ module.exports = function(sequelize, DataTypes) {
         link: {
             type: DataTypes.STRING,
             allowNull: false,
-            validate: {
-                notEmpty: {
-                    msg: 'Please enter a link from your dogcation experience'
-                }
-            }
+            defaultValue: ''
         },
         imageFilename: {
             type: DataTypes.STRING,
