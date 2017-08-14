@@ -1,7 +1,7 @@
 body {
   padding: 50px;
-  font-family: 14px 'Life Savers', cursive;
-/*  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;*/
+/*  font-family: 14px 'Life Savers', cursive;*/
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 /*  background-image: url("/images/fredSUP.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;

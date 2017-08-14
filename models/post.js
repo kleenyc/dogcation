@@ -50,9 +50,9 @@ module.exports = function(sequelize, DataTypes) {
             imageUrl: function() {
                 return (`https://s3.amazonaws.com/dogcation/posts/${this.id}`);
             },
-            imageThumbnailUrl: function() {
-                return (`${this.imageUrl}-thumbnail`);
-            }
+            // imageThumbnailUrl: function() {
+            //     return (`${this.imageUrl}-thumbnail`);
+            // }
         },
         classMethods: {
             associate: function(models) {

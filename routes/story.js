@@ -11,7 +11,7 @@ var router        = express.Router();
 
 // Index.
 router.get('/', function(request, response) {
-	console.log(Post)
+//	console.log(Post)
 	Post.findAll().then(function(posts) {
 		response.render('story/index', {
 			posts: posts
@@ -76,19 +76,19 @@ router.post('/', uploadHandler.single('image'), function(request, response) {
 				Body: 		 request.file.buffer,
 				ACL: 		'public-read',
 				ContentType: request.file.mimetype
-			}, function(error, data) {
-				console.log("===========", error)
-				JSON.stringify(post);
-				s3.upload({
-					Bucket:     'dogcation',
-					Key:        `posts/${post.id}-thumbnail`,
-					Body:        thumbnail,
-					ACL:        'public-read',
-					ContentType: request.file.mimetype
+			// }, function(error, data) {
+			// 	console.log("===========", error)
+			// 	JSON.stringify(post);
+			// 	s3.upload({
+			// 		Bucket:     'dogcation',
+			// 		Key:        `posts/${post.id}-thumbnail`,
+			// 		Body:        thumbnail,
+			// 		ACL:        'public-read',
+			// 		ContentType: request.file.mimetype
 				}, function(error, data) {
 					console.log('data>>>>>>>>',data)
-					response.redirect('/');
-				});
+					response.redirect('/story');
+	//			});
 			});
 		});
 	}).catch(function(error) {
