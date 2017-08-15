@@ -76,19 +76,19 @@ router.post('/', uploadHandler.single('image'), function(request, response) {
 				Body: 		 request.file.buffer,
 				ACL: 		'public-read',
 				ContentType: request.file.mimetype
-			// }, function(error, data) {
-			// 	console.log("===========", error)
-			// 	JSON.stringify(post);
-			// 	s3.upload({
-			// 		Bucket:     'dogcation',
-			// 		Key:        `posts/${post.id}-thumbnail`,
-			// 		Body:        thumbnail,
-			// 		ACL:        'public-read',
-			// 		ContentType: request.file.mimetype
+			}, function(error, data) {
+				console.log("===========", error)
+				JSON.stringify(post);
+				s3.upload({
+					Bucket:     'dogcation',
+					Key:        `posts/${post.id}-thumbnail`,
+					Body:        thumbnail,
+					ACL:        'public-read',
+					ContentType: request.file.mimetype
 				}, function(error, data) {
 					console.log('data>>>>>>>>',data)
-					response.redirect('/story');
-	//			});
+					response.redirect(post.url);
+				});
 			});
 		});
 	}).catch(function(error) {
