@@ -1,8 +1,9 @@
 extends ../layout
 
 block body
-	h1 Dogcation Stories
-	include posts
+	h1.form-heading Dogcation Stories
+	div.postlisting
+		include posts
 	
-	div
-		a.btn.btn-primary.btn-lg(href='/story/new') New Dogcation Story
+	div.form
+		a.btn.btn.btn-success(href='/story/new') Share Your Dogcation Story

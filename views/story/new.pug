@@ -1,7 +1,7 @@
 extends ../layout
 
 block body
-	h1 New Dogcation Story
+	h1.form-heading New Dogcation Story
 	include errors
 	form(action='/story', method='post', enctype='multipart/form-data')
 		div.form
@@ -21,4 +21,4 @@ block body
 				label(for='image') 
 				input.form-group(name='image', type='file')
 			.form-group.button
-				input.btn.btn-default(type='submit', value='Post')
+				input.btn.btn-success(type='submit', value='Post')

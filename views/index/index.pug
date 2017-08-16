@@ -1,10 +1,19 @@
 extends ../layout
 
 block body
+	div.all-content
 	h1 Welcome to Dogcation!
 
 	div
-		a.btn.btn-primary.btn-lg(href='/story/new') Share Your Dogcation Story
+		a.btn.btn.btn-success(href='/story/new') Share Your Dogcation Story
 
-	div 
-		a(href='/story') See Dogcation Stories
+	div.add-top-margin 
+		a.btn.btn.btn-info(href='/story') See Dogcation Stories
+
+	div.intro
+		p Welcome to a community of dog-lovers who love 
+		p to take their fur babies on vacation with them. 
+		p Get dogcation ideas or share your own!
+
+	p.dogpic 
+		img(src='/images/doginsuitcase.png') 

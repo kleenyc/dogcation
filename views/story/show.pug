@@ -1,17 +1,18 @@
 extends ../layout
 
 block body
+	a(href='/story') Back
 	if post
 		.row
-			.col-xs-7
-				h1 #{post.title} #[small.secondary-text= date(post.createdAt)]
-				h4 By #{post.author}
-				p= post.body
+			.col-xs-4 
+				p.post-title #{post.title} 
+				p.post-info #[small.secondary-text= date(post.createdAt)] By #{post.author}
+				p.post-body= post.body
 				p: img(src=post.imageThumbnailUrl)
-			.col-xs-5
-				.panel.panel-default
+			.col-xs-4.right-align
+				.panel.panel-info
 					.panel-heading
-						h3.panel-title Comments
+						h4.panel-title Comments
 					.panel-body
 						include errors
 						form(action=`/story/${post.title}/comments`, method='post')
@@ -19,10 +20,10 @@ block body
 								label(for='author') Author
 								input.form-control(name='author')
 							.form-group
-								label(for='body') Body
+								label(for='body') Comment
 								textarea.form-control(name='body')
 							.form-group
-								input.btn.btn-primary.btn-lg(type='submit', value='Create')
+								input.btn.btn-success(type='submit', value='Create')
 					ul.list-group
 						if comments 
 							each comment in comments

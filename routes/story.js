@@ -11,7 +11,6 @@ var router        = express.Router();
 
 // Index.
 router.get('/', function(request, response) {
-//	console.log(Post)
 	Post.findAll().then(function(posts) {
 		response.render('story/index', {
 			posts: posts

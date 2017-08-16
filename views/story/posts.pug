@@ -1,7 +1,7 @@
 block body
-
-	.list-group
-		each post in posts
-			a.list-group-item(href=post.url)
-				h4 #{post.title} #[small= date(post.createdAt)]
-				p By #{post.author}
+	div.all-content
+	div.center(class="row")
+		div(class="col-lg-12 col-md-10 col-sm-12 col-xs-12")
+			each post in posts
+				a.ul(href=post.url)
+					h5 #{post.title} #[small= date(post.createdAt)]
