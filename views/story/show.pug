@@ -8,6 +8,7 @@ block body
 				p.post-title #{post.title} 
 				p.post-info #[small.secondary-text= date(post.createdAt)] By #{post.author}
 				p.post-body= post.body
+				p.post-link: a(href=`//${post.link}`) #{post.link}
 				p: img(src=`https://s3.amazonaws.com/dogcation/posts/${post.id}-thumbnail`)
 			.col-xs-4.right-align
 				.panel.panel-info
