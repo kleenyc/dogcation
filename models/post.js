@@ -52,6 +52,8 @@ module.exports = function(sequelize, DataTypes) {
             },
             imageThumbnailUrl: function() {
                 return (`${this.imageUrl}-thumbnail`);
+                 console.log('dddddddddddddddddddldldldldldldldldldlldldldld')
+                 console.log(imageThumbnailUrl)
             }
         },
         classMethods: {
@@ -70,7 +72,6 @@ module.exports = function(sequelize, DataTypes) {
                         [sequelize.models.comment, 'createdAt', 'DESC']
                     ]
                 }));
-                    console.log(title)
             }
         }
     }));

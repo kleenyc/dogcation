@@ -1,11 +1,7 @@
 body {
   padding: 50px;
-/*  font-family: 14px 'Life Savers', cursive;*/
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-/*  background-image: url("/images/fredSUP.jpg");
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center; */
+
 }
 
 a {
@@ -26,7 +22,7 @@ a {
 }
 
 .all-content {
-  margin-left: 110px;
+  margin-left: 120px;
 
 }
 
@@ -38,9 +34,9 @@ a {
 
 
 .dogpic {
-  margin-top: 70px;
   display: block;
-  margin-left: 540px;
+  margin-left: 530px;
+
 }
 
 
@@ -81,7 +77,7 @@ a {
 .post-body {
   font-size: 14px;
   font-weight: bold;
-  color: blue;
+  color: #10E6AF;
 }
 
 .post-info {
